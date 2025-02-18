@@ -3,16 +3,16 @@ use std::io::stdout;
 use std::io::{self, Write};
 
 fn main() {
+    loop{
+        print!("$ ");
+        io::stdout().flush().unwrap();
     
-    print!("$ ");
-    io::stdout().flush().unwrap();
-
-    
-    let stdin = io::stdin();
-    let mut input = String::new();
-    stdin.read_line(&mut input).unwrap();
-    input = input.trim().to_string();
-    match input{
-        _ => eprintln!("{}: command not found",input),
+        
+        let stdin = io::stdin();
+        let mut input = String::new();
+        stdin.read_line(&mut input).unwrap();
+        match input{
+            _ => eprintln!("{}: command not found",input.trim()),
+        }
     }
 }   
