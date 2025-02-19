@@ -1,4 +1,4 @@
-use std::{arch::aarch64::int32x2_t, io::stdout, ops::Index};
+use std::io::stdout;
 #[allow(unused_imports)]
 use std::io::{self, Write};
 
@@ -6,10 +6,10 @@ use std::io::{self, Write};
 fn exit_parsed(input:&String){
     let parsed: Vec<&str> = input.split_whitespace().collect();
     if parsed.len() > 1 {
-        println!("exiting with code {}",parsed[1].parse::<i32>().unwrap_or(1).to_string());
+       // println!("exiting with code {}",parsed[1].parse::<i32>().unwrap_or(1).to_string());
         std::process::exit(parsed[1].parse::<i32>().unwrap_or(1));
     }
-    println!("exiting with code 1 default");
+    // println!("exiting with code 1 default");
     std::process::exit(1);
 }
 
