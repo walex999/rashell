@@ -1,4 +1,5 @@
-use std::io::stdout;
+use core::str;
+use std::{array, io::stdout};
 #[allow(unused_imports)]
 use std::io::{self, Write};
 
@@ -18,6 +19,20 @@ fn echo(input: &Vec<&str>){
     println!("");
 }
 
+fn r#type(input: &Vec<&str>){
+    let functions: Vec<&str> = vec!["echo","exit","type"];
+    if input.len()>1{
+        for func in &input[1..]{
+            if functions.contains(func){
+                println!("{} is a shell bultin",&func);
+            }
+            else{
+                println!("{}: not found",&func);
+            }
+        }
+    } 
+}
+
 fn main() {
     let mut input = String::new();
     loop {
@@ -32,6 +47,7 @@ fn main() {
             match parsed[0] {
                 "exit" => exit_parsed(&parsed),
                 "echo" => echo(&parsed),
+                "type" => r#type(&parsed),
                 _ => eprintln!("{}: command not found", input.trim()),
             }
         }
