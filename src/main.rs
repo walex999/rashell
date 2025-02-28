@@ -24,7 +24,7 @@ fn r#type(input: &Vec<&str>){
     if input.len()>1{
         for func in &input[1..]{
             if functions.contains(func){
-                println!("{} is a shell bultin",&func);
+                println!("{} is a shell builtin",&func);
             }
             else{
                 println!("{}: not found",&func);
